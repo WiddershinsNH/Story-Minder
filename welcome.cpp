@@ -1,5 +1,8 @@
 #include "welcome.h"
 #include "ui_welcome.h"
+#include<QMessageBox>
+#include<QDebug>
+#include<today.h>
 
 Welcome::Welcome(QWidget *parent) :
     QDialog(parent),
@@ -11,4 +14,28 @@ Welcome::Welcome(QWidget *parent) :
 Welcome::~Welcome()
 {
     delete ui;
+}
+
+void Welcome::on_pushButton_2_clicked()
+{
+    QMessageBox::StandardButton reply = QMessageBox :: question(this,"Story Minder","Do you really want to close",
+                                                               QMessageBox::Yes | QMessageBox::No);
+    if(reply== QMessageBox::Yes)
+    {
+    QApplication::quit();
+
+    }
+    else
+    {
+      qDebug() <<"No is clicked";
+    }
+}
+
+void Welcome::on_pushButton_clicked()
+{
+    hide();
+    Today today;
+    today.setModal(true);
+    today.exec();
+
 }
