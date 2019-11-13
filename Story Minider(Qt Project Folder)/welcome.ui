@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1200</width>
-    <height>756</height>
+    <width>1189</width>
+    <height>749</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,15 +16,15 @@
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>410</x>
-     <y>40</y>
-     <width>211</width>
+     <x>380</x>
+     <y>80</y>
+     <width>361</width>
      <height>41</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <family>Bahnschrift SemiBold</family>
+     <family>Bahnschrift</family>
      <pointsize>18</pointsize>
      <weight>75</weight>
      <bold>true</bold>
@@ -32,16 +32,16 @@
     </font>
    </property>
    <property name="text">
-    <string>STORY MINDER</string>
+    <string>What Would You Like To Do?</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_2">
+  <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
-     <x>380</x>
-     <y>130</y>
+     <x>420</x>
+     <y>150</y>
      <width>271</width>
-     <height>21</height>
+     <height>28</height>
     </rect>
    </property>
    <property name="font">
@@ -53,52 +53,48 @@
     </font>
    </property>
    <property name="text">
-    <string>What Would You Like to Do?</string>
+    <string>Write Today's Day</string>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButton_2">
    <property name="geometry">
     <rect>
-     <x>410</x>
-     <y>270</y>
-     <width>221</width>
-     <height>33</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>Bahnschrift</family>
-     <pointsize>12</pointsize>
-     <weight>75</weight>
-     <bold>true</bold>
-    </font>
-   </property>
-   <property name="text">
-    <string>Exit</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton">
-   <property name="geometry">
-    <rect>
-     <x>410</x>
+     <x>420</x>
      <y>210</y>
-     <width>221</width>
-     <height>31</height>
+     <width>271</width>
+     <height>28</height>
     </rect>
    </property>
    <property name="font">
     <font>
      <family>Bahnschrift</family>
-     <pointsize>12</pointsize>
+     <pointsize>14</pointsize>
      <weight>75</weight>
      <bold>true</bold>
     </font>
    </property>
    <property name="text">
-    <string>Write Today's day</string>
+    <string>Exit!!!</string>
    </property>
   </widget>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>pushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>Welcome</receiver>
+   <slot>open()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>464</x>
+     <y>164</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>359</x>
+     <y>291</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

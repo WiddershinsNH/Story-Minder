@@ -2,6 +2,8 @@
 #define WELCOME_H
 
 #include <QDialog>
+#include<today.h>
+
 
 namespace Ui {
 class Welcome;
@@ -22,6 +24,8 @@ private slots:
 
 private:
     Ui::Welcome *ui;
+    Today *today;
+
 };
 
 #endif // WELCOME_H

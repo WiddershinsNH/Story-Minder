@@ -20,6 +20,7 @@ private slots:
 
 private:
     Ui::SignUp *ui;
+
 };
 
 #endif // SIGNUP_H

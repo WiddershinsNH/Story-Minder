@@ -7,6 +7,7 @@
 #include<bits/stdc++.h>
 #include<iostream>
 #include<signin.h>
+
 using namespace std;
 
 SignUp::SignUp(QWidget *parent) :
@@ -25,12 +26,11 @@ SignUp::~SignUp()
 
 void SignUp::on_pushButton_clicked()
 {
-    QFile file("D:/Qt/Story Minder/User/User.txt");
-    if(!file.open(QIODevice::WriteOnly | QIODevice::Text | QIODevice::Append)){
+    QFile userfile("D:/Qt/Story Minder/User/User.txt");
+    if(!userfile.open(QIODevice::WriteOnly | QIODevice::Text | QIODevice::Append)){
         QMessageBox::warning(this,"Warning","File not Opened!");
     }
-
-    QTextStream out(&file);
+    QTextStream out(&userfile);
     QString Email= ui->lineEdit_Email->text();
     out<<Email<<endl;
     QString Username = ui->lineEdit_username->text();
@@ -38,12 +38,13 @@ void SignUp::on_pushButton_clicked()
     QString password = ui->lineEdit_password->text();
     out<<password<<endl;
     out<<endl;
-    file.flush();
-    file.close();
+    userfile.flush();
+    userfile.close();
 
-    hide();
-    SignIn signin;
-    signin.setModal(true);
-    signin.exec();
+hide();
+SignIn signin;
+signin.setModal(true);
+signin.exec();
+
 
 }

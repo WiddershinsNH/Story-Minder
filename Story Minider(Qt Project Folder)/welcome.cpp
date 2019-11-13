@@ -2,7 +2,8 @@
 #include "ui_welcome.h"
 #include<QMessageBox>
 #include<QDebug>
-#include<today.h>
+
+
 
 Welcome::Welcome(QWidget *parent) :
     QDialog(parent),
@@ -33,9 +34,9 @@ void Welcome::on_pushButton_2_clicked()
 
 void Welcome::on_pushButton_clicked()
 {
-    hide();
-    Today today;
-    today.setModal(true);
-    today.exec();
+hide();
+today = new Today(this);
+today->show();
+
 
 }

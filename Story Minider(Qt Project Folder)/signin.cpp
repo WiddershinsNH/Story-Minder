@@ -7,6 +7,8 @@
 #include<bits/stdc++.h>
 #include<iostream>
 #include<welcome.h>
+#include<QDebug>
+#include<welcome.h>
 using namespace std;
 
 SignIn::SignIn(QWidget *parent) :
@@ -23,67 +25,84 @@ SignIn::~SignIn()
 
 void SignIn::on_pushButton_signin_clicked()
 {
-    hide();
-
-
-Welcome welcome;
-welcome.setModal(true);
-welcome.exec();
-        /*//QString SearchEmail, SearchPass;
-        ifstream UserFile;
-        string line;
-        int EmailPosition = 0, PassPosition = 0, EmailMatched = 0, PassMatched = 0;
-        UserFile.open("D:/Qt/Story Minder/User/User.txt");
-        if (!UserFile) {
-            QMessageBox::warning(this,"Warning","File not Opened!");
-            exit(1);
-        }
-         QString SearchEmail = ui->lineEdit_email->text();
-         QString SearchPass = ui->lineEdit_password->text();
-         size_t pos1;
-        while (UserFile.good()) {
-            getline(UserFile, line);
-            pos1 = line.find(SearchEmail);
-            EmailPosition++;
-            if (pos1 != string::npos) {
-                EmailMatched = 1;
-                //cout << EmailPosition << endl;
-            }
-            if (EmailMatched == 1) {
-                size_t pos2;
-                while (UserFile.good()) {
-                    getline(UserFile, line);
-                    pos2 = line.find(SearchPass);
-                    PassPosition++;
-                    if (pos2 != string::npos) {
-                        PassMatched = 1;
-                        //cout << PassPosition << endl;
-                    }
-                    if (PassMatched==1 && PassPosition == 1) {
-                        cout << "Log in successful" << endl;
-                        break;
-                    }
-                }
-                if (PassMatched!=1)
-                {
-                    cout << "Log in failed.Wrong Password." << endl;
-                    break;
-                }
-            }
-        }
-        if (EmailMatched == 0)
-        {
-            cout << "No match found.Please check your email address again." << endl;
-            cout << "If you don't have and account sign up first." << endl;
-        }
-    }
-     if(username== "test" && password=="test")
-    {
-
-     }
-     else
+     int EmailPosition = 0, PassPosition = 0, EmailMatched = 0, PassMatched = 0;
+     QFile userfile("D:/Qt/Story Minder/User/User.txt");
+     if(!userfile.open(QIODevice::ReadOnly | QIODevice::Text))
      {
-         QMessageBox::warning(this,"SIGN IN","username or password is incorrect");
+         QMessageBox::warning(this,"Warning","File not Opened!");
+     }
 
+
+     QString Email= ui->lineEdit_email->text();
+     QString Password = ui->lineEdit_password->text();
+
+     QTextStream Stream(&userfile);
+     QString line_email;
+     do
+     {
+         line_email = Stream.readLine();
+         EmailPosition++;
+         if(line_email.contains(Email))
+         {
+             EmailMatched = 1;
+             cout<<"Email matched"<<endl;
+             cout <<"Email " <<EmailPosition << endl;
+             break;
+         }
+     }
+     while (!line_email.isNull());
+       if(EmailMatched == 1)
+         {
+             QString line_pass;
+             do
+             {
+                 line_pass = Stream.readLine();
+                 //qDebug()<< "abc" << qPrintable(line_pass) << "def";
+                 PassPosition++;
+                 //cout<<"passposition "<<PassPosition<<endl;
+                 //cout<<line_pass.contains(Password)<<endl;
+                 if(line_pass.contains(Password))
+                 {
+                     PassMatched = 1;
+                     //cout<<"Pass matched"<<endl;
+                     cout <<"Pass "<< PassPosition << endl;
+
+                 }
+
+                 if(PassMatched==1 && PassPosition == 2)
+                 {
+                     cout << "Log in successful" << endl;
+                     hide();
+                     Welcome welcome;
+                     welcome.setModal(true);
+                     welcome.exec();
+                 }
+
+
+
+             }
+             while (!line_pass.isNull());
+         }
+       /* if(PassMatched==0)
+       {
+           cout<<"Pass wrong"<<endl;
+           QMessageBox::warning(this,"Error message","Wrong Password!!!");
+       }
+     if (EmailMatched == 0)
+     {
+         cout << "No match found.Please check your email address again." << endl;
+         cout << "If you don't have and account sign up first." << endl;
      }*/
 }
+
+
+
+
+
+
+
+
+
+
+
+
