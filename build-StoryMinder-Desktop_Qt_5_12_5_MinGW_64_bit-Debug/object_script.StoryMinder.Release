@@ -1,0 +1,12 @@
+release/diary.o
+release/main.o
+release/login.o
+release/signin.o
+release/signup.o
+release/welcome.o
+release/qrc_Resource.o
+release/moc_diary.o
+release/moc_login.o
+release/moc_signin.o
+release/moc_signup.o
+release/moc_welcome.o

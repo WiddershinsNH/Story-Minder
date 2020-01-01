@@ -1,0 +1,26 @@
+<RCC>
+    <qresource prefix="/icons">
+        <file>images/add.png.png</file>
+        <file>images/bold.png.png</file>
+        <file>images/copy.png.png</file>
+        <file>images/create.png.png</file>
+        <file>images/cut.png.png</file>
+        <file>images/exit.png.png</file>
+        <file>images/font.png.png</file>
+        <file>images/index.png</file>
+        <file>images/info.png.png</file>
+        <file>images/italic.png.png</file>
+        <file>images/new.png.png</file>
+        <file>images/open.png.png</file>
+        <file>images/pencil.png.png</file>
+        <file>images/print.png.png</file>
+        <file>images/redo.png.png</file>
+        <file>images/save.png.png</file>
+        <file>images/undo.png.png</file>
+    </qresource>
+    <qresource prefix="/">
+        <file>images/save as.png</file>
+        <file>images/index.jfif</file>
+        <file>images/25402.png</file>
+    </qresource>
+</RCC>
